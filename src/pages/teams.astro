@@ -52,7 +52,7 @@ const sections = [
 
 	.back-link {
 		text-decoration: none;
-		color: #fb923c;
+		color: var(--accent);
 		font-weight: 700;
 	}
 
@@ -60,17 +60,18 @@ const sections = [
 		margin: 22px 0 8px;
 		letter-spacing: 0.2em;
 		font-size: 12px;
-		color: #f3f4f6;
+		color: var(--text-strong);
 	}
 
 	h1 {
 		margin: 0 0 14px;
 		font-size: clamp(36px, 6vw, 56px);
+		color: var(--text-strong);
 	}
 
 	.lead,
 	p {
-		color: #c7d0db;
+		color: var(--text-muted);
 		line-height: 1.8;
 	}
 
@@ -84,12 +85,13 @@ const sections = [
 	.card {
 		padding: 24px;
 		border-radius: 20px;
-		background: rgba(18, 24, 33, 0.82);
-		border: 1px solid rgba(255, 255, 255, 0.08);
+		background: var(--card);
+		border: 1px solid var(--border);
 	}
 
 	.card h2 {
 		margin-top: 0;
+		color: var(--text-strong);
 	}
 
 	@media (max-width: 720px) {
