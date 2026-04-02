@@ -2,40 +2,43 @@
 import Layout from '../layouts/Layout.astro';
 
 const highlights = [
-	{ title: '机器人开发', text: '底盘、云台、视觉、嵌入式控制一体化协作。' },
-	{ title: '赛事积累', text: '沉淀 RoboMaster 参赛经验、方案复盘与工程文档。' },
-	{ title: '开放协作', text: '面向新成员提供入门路径、任务地图与知识索引。' },
+	{ title: '机器人开发', text: '围绕 RoboMaster 开展机械、电控、视觉与整机协同开发。' },
+	{ title: '赛事积累', text: '沉淀比赛经验、项目复盘、调试记录与工程资料。' },
+	{ title: '开放协作', text: '欢迎对机器人、嵌入式、算法与赛事工程感兴趣的同学加入。' },
 ];
 
 const sections = [
-	{ name: '机械组', desc: '机构设计、加工装配、结构优化。' },
-	{ name: '电控组', desc: 'STM32、驱动板、控制算法、通信链路。' },
-	{ name: '视觉组', desc: '目标识别、定位解算、上位机协同。' },
-	{ name: '运营组', desc: '宣传内容、活动组织、文档建设。' },
+	{ name: '机械组', desc: '机构设计、加工装配、结构优化与实车调试。' },
+	{ name: '电控组', desc: 'STM32、驱动控制、CAN 通信、任务调度与算法实现。' },
+	{ name: '视觉组', desc: '目标识别、定位解算、串口联调与上位机协作。' },
+	{ name: '运营组', desc: '战队宣传、活动组织、内容运营与对外展示。' },
 ];
+
+const feishuInviteUrl = 'https://ecnxe597phb3.feishu.cn/invite/member/TYzmSefnMiM';
 ---
 
-<Layout title="RoboMaster Lab">
+<Layout title="集美大学科来战队主页">
 	<div class="page">
 		<header class="hero">
 			<nav class="nav">
-				<div class="brand">RoboMaster Lab</div>
+				<div class="brand">集美大学科来战队</div>
 				<div class="links">
 					<a href="#about">关于我们</a>
 					<a href="#teams">小组方向</a>
 					<a href="/robomaster-lab/docs">技术文档</a>
+					<a href={feishuInviteUrl} target="_blank" rel="noreferrer">加入我们</a>
 				</div>
 			</nav>
 
 			<section class="hero-main">
 				<div class="hero-copy">
-					<p class="eyebrow">BUILD · TEST · COMPETE</p>
-					<h1>面向 RoboMaster 的实验室展示站与技术文档中心</h1>
+					<p class="eyebrow">JIMEI UNIVERSITY · KELAI ROBOMASTER TEAM</p>
+					<h1>集美大学科来战队主页</h1>
 					<p class="lead">
-						展示团队、沉淀知识、组织协作。适合放比赛成果、成员介绍、开发规范与项目文档。
+						展示战队风采、沉淀技术资料、组织招新协作，服务于 RoboMaster 项目展示与团队建设。
 					</p>
 					<div class="actions">
-						<a class="primary" href="#about">了解实验室</a>
+						<a class="primary" href={feishuInviteUrl} target="_blank" rel="noreferrer">立即加入飞书群</a>
 						<a class="secondary" href="/robomaster-lab/docs">进入文档区</a>
 					</div>
 				</div>
@@ -74,10 +77,10 @@ const sections = [
 
 			<section class="panel callout">
 				<div>
-					<h2>下一步你可以继续加什么</h2>
-					<p>队伍成员页、比赛成绩页、招新页、项目展示页、开发手册页。</p>
+					<h2>欢迎加入集美大学科来战队</h2>
+					<p>你可以继续补充队伍成员页、比赛成绩页、招新页、项目展示页和开发手册页。</p>
 				</div>
-				<a class="primary" href="/robomaster-lab/docs">先看文档模板</a>
+				<a class="primary" href={feishuInviteUrl} target="_blank" rel="noreferrer">通过飞书加入</a>
 			</section>
 		</main>
 	</div>
