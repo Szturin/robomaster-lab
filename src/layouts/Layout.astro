@@ -74,8 +74,8 @@ const footerLinks = [
 <style>
 	:root {
 		font-family: Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif;
-		color: #e5eef7;
-		background: #08111f;
+		color: #f4f7fb;
+		background: #0b0f14;
 	}
 
 	html,
@@ -84,8 +84,9 @@ const footerLinks = [
 		width: 100%;
 		min-height: 100%;
 		background:
-			radial-gradient(circle at top, rgba(41, 98, 255, 0.18), transparent 32%),
-			linear-gradient(180deg, #08111f 0%, #0d1728 100%);
+			radial-gradient(circle at top, rgba(249, 115, 22, 0.14), transparent 26%),
+			radial-gradient(circle at top right, rgba(255, 255, 255, 0.04), transparent 20%),
+			linear-gradient(180deg, #0b0f14 0%, #121821 100%);
 	}
 
 	body {
@@ -128,13 +129,13 @@ const footerLinks = [
 
 	.footer-note {
 		margin: 0;
-		color: #9eb0c7;
+		color: #98a2b3;
 		font-size: 14px;
 	}
 
 	.footer-note a {
 		text-decoration: none;
-		color: #7ab8ff;
+		color: #fb923c;
 	}
 
 	.footer-links {
@@ -151,15 +152,16 @@ const footerLinks = [
 		height: 38px;
 		border-radius: 999px;
 		background: rgba(255, 255, 255, 0.03);
-		border: 1px solid rgba(140, 168, 197, 0.16);
+		border: 1px solid rgba(255, 255, 255, 0.08);
 		text-decoration: none;
-		transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease;
-		color: #c7d5e5;
+		transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+		color: #d6deea;
 	}
 
 	.footer-links a:hover {
 		transform: translateY(-2px);
-		border-color: rgba(122, 184, 255, 0.45);
+		border-color: rgba(249, 115, 22, 0.45);
+		background: rgba(249, 115, 22, 0.08);
 		color: #ffffff;
 	}
 
