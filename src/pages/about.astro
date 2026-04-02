@@ -1,0 +1,130 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const highlights = [
+	{ title: '工程驱动', text: '以 RoboMaster 赛题为牵引，围绕整机工程、系统联调和真实比赛场景开展协作。' },
+	{ title: '技术沉淀', text: '把调试记录、项目复盘、技术方案和开发手册沉淀为团队可复用资产。' },
+	{ title: '开放成长', text: '鼓励跨方向协作与新人培养，让成员在实战中形成完整工程视角。' },
+];
+---
+
+<Layout title="关于我们 | 科来战队 Robomaster Lab">
+	<div class="page">
+		<header class="topbar">
+			<a class="back-link" href="/robomaster-lab/">← 返回首页</a>
+			<p class="eyebrow">ABOUT KELAI TEAM</p>
+			<h1>关于我们</h1>
+			<p class="lead">
+				科来战队 Robomaster Lab 致力于将比赛、工程实践与团队协作结合起来，打造一个能够持续迭代、持续成长的机器人研发环境。
+			</p>
+		</header>
+
+		<section class="panel">
+			<h2>团队定位</h2>
+			<div class="grid three">
+				{highlights.map((item) => (
+					<article class="card">
+						<h3>{item.title}</h3>
+						<p>{item.text}</p>
+					</article>
+				))}
+			</div>
+		</section>
+
+		<section class="panel narrative">
+			<div>
+				<h2>我们在做什么</h2>
+				<p>
+					从机械结构设计、电控系统实现，到视觉感知与上位机协同，团队围绕完整机器人系统开展研发。
+				</p>
+			</div>
+			<div>
+				<h2>我们想沉淀什么</h2>
+				<p>
+					除了参赛成果，更重视技术复盘、知识整理、开发流程规范与团队协作方法，让经验可以被后来者继承。
+				</p>
+			</div>
+		</section>
+	</div>
+</Layout>
+
+<style>
+	.page {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 28px 24px 64px;
+	}
+
+	.back-link {
+		text-decoration: none;
+		color: #fb923c;
+		font-weight: 700;
+	}
+
+	.eyebrow {
+		margin: 22px 0 8px;
+		letter-spacing: 0.2em;
+		font-size: 12px;
+		color: #f3f4f6;
+	}
+
+	h1 {
+		margin: 0 0 14px;
+		font-size: clamp(36px, 6vw, 56px);
+	}
+
+	.lead,
+	p {
+		color: #c7d0db;
+		line-height: 1.8;
+	}
+
+	.panel {
+		margin-top: 24px;
+		padding: 28px;
+		border-radius: 24px;
+		background: rgba(18, 24, 33, 0.82);
+		border: 1px solid rgba(255, 255, 255, 0.08);
+	}
+
+	.grid {
+		display: grid;
+		gap: 16px;
+		margin-top: 18px;
+	}
+
+	.three {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+
+	.card {
+		padding: 20px;
+		border-radius: 18px;
+		background: rgba(255, 255, 255, 0.03);
+		border: 1px solid rgba(255, 255, 255, 0.06);
+	}
+
+	.card h3,
+	.narrative h2 {
+		margin-top: 0;
+	}
+
+	.narrative {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 18px;
+	}
+
+	@media (max-width: 900px) {
+		.three,
+		.narrative {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	@media (max-width: 640px) {
+		.page {
+			padding: 20px 16px 48px;
+		}
+	}
+</style>

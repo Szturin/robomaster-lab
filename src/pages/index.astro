@@ -16,6 +16,7 @@ const sections = [
 
 const feishuInviteUrl = 'https://ecnxe597phb3.feishu.cn/invite/member/TYzmSefnMiM';
 const feishuDocUrl = 'https://ecnxe597phb3.feishu.cn/wiki/Ku6PwOIlLiC7FnklO5MccZUZnig';
+const robomasterUrl = 'https://www.robomaster.com/zh-CN';
 ---
 
 <Layout title="科来战队 Robomaster Lab">
@@ -24,13 +25,19 @@ const feishuDocUrl = 'https://ecnxe597phb3.feishu.cn/wiki/Ku6PwOIlLiC7FnklO5MccZ
 			<nav class="nav">
 				<div class="brand">科来战队 Robomaster Lab</div>
 				<div class="links">
-					<a href="#about">
+					<a href={robomasterUrl} target="_blank" rel="noreferrer">
+						<svg viewBox="0 0 24 24" aria-hidden="true">
+							<path fill="currentColor" d="M5 4h6.6c3.62 0 5.9 1.86 5.9 4.82 0 2.04-1.04 3.47-2.9 4.12L19 20h-3.95l-3.87-6.43H8.4V20H5V4Zm3.4 2.72v4.2h3c1.67 0 2.58-.71 2.58-2.08 0-1.4-.9-2.12-2.58-2.12h-3Z" />
+						</svg>
+						<span>赛事官网</span>
+					</a>
+					<a href="/robomaster-lab/about">
 						<svg viewBox="0 0 24 24" aria-hidden="true">
 							<path fill="currentColor" d="M12 2.5 4 6v5.2c0 5.1 3.45 9.86 8 11.3 4.55-1.44 8-6.2 8-11.3V6l-8-3.5Zm0 2.18L18 7.3v3.9c0 4.05-2.57 7.96-6 9.28-3.43-1.32-6-5.23-6-9.28V7.3l6-2.62Z" />
 						</svg>
 						<span>关于我们</span>
 					</a>
-					<a href="#teams">
+					<a href="/robomaster-lab/teams">
 						<svg viewBox="0 0 24 24" aria-hidden="true">
 							<path fill="currentColor" d="M6.5 6a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm11 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM12 11a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm-5.5 2c1.83 0 3.4.8 4.5 2.06A5.97 5.97 0 0 0 8 20H3.5v-1A6 6 0 0 1 6.5 13Zm11 0A6 6 0 0 1 20.5 19v1H16a5.97 5.97 0 0 0-3-4.94A5.98 5.98 0 0 1 17.5 13ZM12 18a4 4 0 0 1 4 4H8a4 4 0 0 1 4-4Z" />
 						</svg>
@@ -73,7 +80,13 @@ const feishuDocUrl = 'https://ecnxe597phb3.feishu.cn/wiki/Ku6PwOIlLiC7FnklO5MccZ
 
 		<main>
 			<section id="about" class="panel">
-				<h2>实验室定位</h2>
+				<div class="section-head">
+					<div>
+						<h2>关于我们</h2>
+						<p class="section-note">主页保留简介，完整介绍请进入详细页面。</p>
+					</div>
+					<a class="text-link" href="/robomaster-lab/about">查看详情</a>
+				</div>
 				<div class="grid three">
 					{highlights.map((item) => (
 						<article class="card">
@@ -85,7 +98,13 @@ const feishuDocUrl = 'https://ecnxe597phb3.feishu.cn/wiki/Ku6PwOIlLiC7FnklO5MccZ
 			</section>
 
 			<section id="teams" class="panel">
-				<h2>小组方向</h2>
+				<div class="section-head">
+					<div>
+						<h2>小组方向</h2>
+						<p class="section-note">主页展示概览，详细职责与学习路径见子页面。</p>
+					</div>
+					<a class="text-link" href="/robomaster-lab/teams">查看详情</a>
+				</div>
 				<div class="grid four">
 					{sections.map((item) => (
 						<article class="card compact">
@@ -266,6 +285,29 @@ const feishuDocUrl = 'https://ecnxe597phb3.feishu.cn/wiki/Ku6PwOIlLiC7FnklO5MccZ
 		padding: 28px;
 	}
 
+	.section-head {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-end;
+		gap: 16px;
+		margin-bottom: 4px;
+	}
+
+	.section-note {
+		margin: 8px 0 0;
+		color: #98a2b3;
+	}
+
+	.text-link {
+		color: #fb923c;
+		font-weight: 700;
+		white-space: nowrap;
+	}
+
+	.text-link:hover {
+		color: #fdba74;
+	}
+
 	.grid {
 		display: grid;
 		gap: 16px;
@@ -308,7 +350,18 @@ const feishuDocUrl = 'https://ecnxe597phb3.feishu.cn/wiki/Ku6PwOIlLiC7FnklO5MccZ
 
 		.nav {
 			flex-direction: column;
+			align-items: flex-start;
 			gap: 16px;
+		}
+
+		.links {
+			flex-direction: row;
+			flex-wrap: wrap;
+			gap: 10px;
+		}
+
+		.links a {
+			padding: 9px 12px;
 		}
 	}
 
@@ -317,9 +370,13 @@ const feishuDocUrl = 'https://ecnxe597phb3.feishu.cn/wiki/Ku6PwOIlLiC7FnklO5MccZ
 			padding: 16px;
 		}
 
-		.links,
 		.actions {
 			flex-direction: column;
+		}
+
+		.section-head {
+			flex-direction: column;
+			align-items: flex-start;
 		}
 	}
 </style>
