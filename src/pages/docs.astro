@@ -6,6 +6,11 @@ const docs = [
 	{ title: '电控入门', text: 'STM32、CAN 通信、任务调度、调参流程。' },
 	{ title: '视觉方案', text: '识别链路、串口协议、上位机联调。' },
 	{ title: '比赛手册', text: '兵种分工、赛前检查、问题复盘。' },
+	{
+		title: '飞书知识文档',
+		text: '查看战队飞书 Wiki 文档，获取更完整的内部资料与协作内容。',
+		url: 'https://ecnxe597phb3.feishu.cn/wiki/Ku6PwOIlLiC7FnklO5MccZUZnig',
+	},
 ];
 ---
 
@@ -19,10 +24,17 @@ const docs = [
 
 		<section class="grid">
 			{docs.map((item) => (
-				<article class="card">
-					<h2>{item.title}</h2>
-					<p>{item.text}</p>
-				</article>
+				item.url ? (
+					<a class="card link-card" href={item.url} target="_blank" rel="noreferrer">
+						<h2>{item.title}</h2>
+						<p>{item.text}</p>
+					</a>
+				) : (
+					<article class="card">
+						<h2>{item.title}</h2>
+						<p>{item.text}</p>
+					</article>
+				)
 			))}
 		</section>
 	</div>
@@ -61,6 +73,17 @@ const docs = [
 		border-radius: 20px;
 		background: rgba(10, 20, 35, 0.72);
 		border: 1px solid rgba(140, 168, 197, 0.16);
+	}
+
+	.link-card {
+		display: block;
+		text-decoration: none;
+		transition: transform 0.2s ease, border-color 0.2s ease;
+	}
+
+	.link-card:hover {
+		transform: translateY(-2px);
+		border-color: rgba(122, 184, 255, 0.45);
 	}
 
 	.card h2 {
