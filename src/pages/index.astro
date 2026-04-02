@@ -134,10 +134,20 @@ const robomasterUrl = 'https://www.robomaster.com/zh-CN';
 	}
 
 	.nav {
+		position: sticky;
+		top: 0;
+		z-index: 50;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		padding: 12px 0 28px;
+		padding: 14px 18px;
+		margin-bottom: 20px;
+		border-radius: 18px;
+		background: rgba(11, 15, 20, 0.72);
+		backdrop-filter: blur(14px);
+		-webkit-backdrop-filter: blur(14px);
+		border: 1px solid rgba(255, 255, 255, 0.08);
+		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
 	}
 
 	.brand {
@@ -189,7 +199,7 @@ const robomasterUrl = 'https://www.robomaster.com/zh-CN';
 		grid-template-columns: 1.4fr 0.8fr;
 		gap: 24px;
 		align-items: center;
-		padding: 36px 0 28px;
+		padding: 12px 0 28px;
 	}
 
 	.eyebrow {
@@ -349,9 +359,13 @@ const robomasterUrl = 'https://www.robomaster.com/zh-CN';
 		}
 
 		.nav {
+			position: sticky;
+			top: 0;
+			z-index: 50;
 			flex-direction: column;
 			align-items: flex-start;
-			gap: 16px;
+			gap: 14px;
+			padding: 12px 14px;
 		}
 
 		.links {
