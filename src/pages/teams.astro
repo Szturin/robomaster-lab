@@ -4,30 +4,30 @@ import Layout from '../layouts/Layout.astro';
 const sections = [
 	{
 		name: '机械组',
-		desc: '负责结构设计、机构实现、整机装配与实车调试，是整车机械能力落地的核心方向。',
+		desc: '围绕结构设计、机构实现、整机装配与实车调试开展训练，帮助成员建立完整的机械工程实践能力。',
 	},
 	{
 		name: '电控组',
-		desc: '负责嵌入式开发、控制系统实现、通信链路与运动控制，是整机性能实现的关键方向。',
+		desc: '聚焦嵌入式开发、控制系统、通信链路与运动控制，让成员掌握机器人核心控制能力。',
 	},
 	{
 		name: '视觉组',
-		desc: '负责 Linux 环境开发、MiniPC 部署、深度学习推理链路与模型训练优化。',
+		desc: '负责 Linux 开发、MiniPC 部署与深度学习模型训练，培养感知算法与系统部署能力。',
 	},
 	{
 		name: '硬件组',
-		desc: '负责 PCB 设计、接口与电源系统、传感器接入及电气可靠性验证。',
+		desc: '围绕 PCB 设计、接口电源、传感器接入与电气验证开展实践，打牢硬件实现基础。',
 	},
 	{
 		name: '运营组',
-		desc: '负责宣传招新、项目管理、物资统筹与对外联络，为战队持续运转提供支持。',
+		desc: '参与宣传招新、项目管理、物资统筹与对外联络，提升团队协作与赛事保障能力。',
 	},
 ];
 ---
 
 <Layout
 	title="成员培养 | 集美大学科来战队 RoboMaster Lab"
-	description="查看集美大学科来战队 RoboMaster Lab 的机械组、电控组、视觉组、硬件组与运营组分工，以及 RoboMaster 研发学习路径。"
+	description="查看集美大学科来战队 RoboMaster Lab 的机械组、电控组、视觉组、硬件组与运营组培养路径，以及 RoboMaster 研发学习内容。"
 	canonicalPath="/robomaster-lab/teams"
 >
 	<div class="page">
@@ -36,7 +36,7 @@ const sections = [
 			<p class="eyebrow">MEMBER DEVELOPMENT</p>
 			<h1>成员培养</h1>
 			<p class="lead">
-				集美大学科来战队按照 RoboMaster 机器人研发流程划分机械组、电控组、视觉组、硬件组与运营组，各方向围绕设计、控制、感知、制造与赛事保障协同推进，强调跨组配合与整机联调。
+				集美大学科来战队围绕 RoboMaster 机器人研发建立机械、电控、视觉、硬件与运营协同培养体系，帮助成员在真实项目、整机联调与赛事实践中逐步形成完整工程能力。
 			</p>
 		</header>
 
@@ -98,17 +98,36 @@ const sections = [
 	}
 
 	.card h2 {
-		margin-top: 0;
+		margin: 0 0 10px;
 		color: var(--text-strong);
 	}
 
 	@media (max-width: 720px) {
 		.grid {
 			grid-template-columns: 1fr;
+			gap: 14px;
+			margin-top: 18px;
 		}
 
 		.page {
 			padding: 20px 16px 48px;
+		}
+
+		.eyebrow {
+			margin-top: 18px;
+		}
+
+		h1 {
+			margin-bottom: 10px;
+		}
+
+		.lead {
+			margin-bottom: 0;
+		}
+
+		.card {
+			padding: 20px;
+			border-radius: 18px;
 		}
 	}
 </style>

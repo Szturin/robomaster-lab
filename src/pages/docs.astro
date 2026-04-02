@@ -4,38 +4,28 @@ import Layout from '../layouts/Layout.astro';
 const groups = [
 	{
 		name: '机械组',
-		docs: [
-			{ title: '机械组文档', text: '围绕结构设计、机构实现、装配调试等内容整理的文档入口。' },
-		],
+		docs: [{ title: '机械组资料', text: '围绕结构设计、机构实现、装配调试等内容整理的资料入口。' }],
 	},
 	{
 		name: '电控组',
-		docs: [
-			{ title: '电控入门', text: '嵌入式开发、控制系统、通信链路与调参流程。' },
-		],
+		docs: [{ title: '电控组资料', text: '嵌入式开发、控制系统、通信链路与调参流程。' }],
 	},
 	{
 		name: '视觉组',
-		docs: [
-			{ title: '视觉方案', text: 'Linux 开发、MiniPC 部署、模型训练与推理链路相关资料。' },
-		],
+		docs: [{ title: '视觉组资料', text: 'Linux 开发、MiniPC 部署、模型训练与推理链路相关资料。' }],
 	},
 	{
 		name: '硬件组',
-		docs: [
-			{ title: '硬件组文档', text: 'PCB设计、接口电源、传感器接入与电气验证文档入口。' },
-		],
+		docs: [{ title: '硬件组资料', text: 'PCB 设计、接口电源、传感器接入与电气验证资料入口。' }],
 	},
 	{
 		name: '运营组',
-		docs: [
-			{ title: '比赛手册', text: '宣传招新、项目统筹、物资协调与赛事复盘资料。' },
-		],
+		docs: [{ title: '运营组资料', text: '宣传招新、项目统筹、物资协调与赛事复盘资料。' }],
 	},
 ];
 
 const commonDocs = [
-	{ title: '开发环境搭建', text: '包含工具链安装、仓库结构、基础约定。' },
+	{ title: '开发环境搭建', text: '面向新成员入门，包含工具链安装、仓库结构与基础协作约定。' },
 	{
 		title: '飞书知识文档',
 		text: '查看战队飞书 Wiki 文档，获取更完整的内部资料与协作内容。',
@@ -53,7 +43,7 @@ const commonDocs = [
 		<header class="topbar">
 			<a href="/robomaster-lab/">← 返回首页</a>
 			<h1>技术文档</h1>
-			<p>这里汇总集美大学科来战队 TEF RoboMaster Lab 的技术文档、开发环境说明、各组资料入口与学习资料，服务于 RoboMaster 机器人研发、战队训练、新人入门与知识沉淀。</p>
+			<p>这里汇总战队的技术文档、开发环境说明、各组资料入口与学习材料，服务于项目研发、成员培养、新人入门与知识沉淀。</p>
 		</header>
 
 		<section class="panel common-panel">
@@ -107,12 +97,13 @@ const commonDocs = [
 
 	.topbar h1 {
 		margin: 16px 0 8px;
-		font-size: 42px;
+		font-size: clamp(34px, 6vw, 42px);
 		color: var(--text-strong);
 	}
 
 	.topbar p {
 		color: var(--text-muted);
+		line-height: 1.8;
 	}
 
 	.groups {
@@ -187,6 +178,26 @@ const commonDocs = [
 
 		.page {
 			padding: 20px 16px 48px;
+		}
+
+		.topbar h1 {
+			margin: 14px 0 6px;
+		}
+
+		.groups {
+			gap: 16px;
+			margin-top: 16px;
+		}
+
+		.panel,
+		.card {
+			padding: 20px;
+			border-radius: 20px;
+		}
+
+		.grid {
+			gap: 14px;
+			margin-top: 14px;
 		}
 	}
 </style>

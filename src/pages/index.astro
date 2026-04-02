@@ -127,11 +127,11 @@ const searchQuery = 'site:szturin.github.io/robomaster-lab';
 				<div class="section-head">
 					<div>
 						<h2>成员培养</h2>
-						<p class="section-note">主页展示 RoboMaster 分工概览，详细职责与学习路径见子页面。</p>
+						<p class="section-note">主页展示 RoboMaster 分工概览，详细职责与培养路径见子页面。</p>
 					</div>
-					<a class="text-link" href="/robomaster-lab/teams">查看 RoboMaster 成员培养方向</a>
+					<a class="text-link" href="/robomaster-lab/teams">查看成员培养详情</a>
 				</div>
-				<div class="team-switcher" aria-label="成员培养方向切换">
+				<div class="team-switcher" aria-label="成员培养内容切换">
 					<input class="team-toggle" type="radio" name="team-page" id="team-page-1" checked />
 					<input class="team-toggle" type="radio" name="team-page" id="team-page-2" />
 
@@ -1076,6 +1076,21 @@ const searchQuery = 'site:szturin.github.io/robomaster-lab';
 
 		.callout {
 			gap: 16px;
+		}
+	}
+
+	@media (max-width: 640px) {
+		.links a {
+			padding: 8px 10px;
+			font-size: 14px;
+		}
+
+		.team-pages {
+			min-height: 392px;
+		}
+
+		.text-link {
+			width: auto;
 		}
 	}
 </style>
