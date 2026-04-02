@@ -66,13 +66,6 @@ const footerSections = [
 			</main>
 			<footer class="site-footer">
 				<div class="footer-inner">
-					<div class="footer-toolbar">
-						<div class="theme-switcher" role="group" aria-label="主题切换">
-							<button type="button" class="theme-button" data-theme-choice="light">浅色</button>
-							<button type="button" class="theme-button" data-theme-choice="dark">暗色</button>
-							<button type="button" class="theme-button" data-theme-choice="system">跟随</button>
-						</div>
-					</div>
 					<div class="footer-grid">
 						{footerSections.map((section) => (
 							<section class="footer-column">
@@ -115,6 +108,10 @@ const footerSections = [
 					document.querySelectorAll('.theme-button').forEach((button) => {
 						button.classList.toggle('is-active', button.dataset.themeChoice === choice);
 					});
+					const icon = document.querySelector('[data-theme-icon]');
+					if (icon) {
+						icon.setAttribute('data-theme-state', choice);
+					}
 				};
 				document.querySelectorAll('.theme-button').forEach((button) => {
 					button.addEventListener('click', () => apply(button.dataset.themeChoice || 'system'));
@@ -218,39 +215,6 @@ const footerSections = [
 		border-top: 1px solid var(--border-strong);
 	}
 
-	.footer-toolbar {
-		display: flex;
-		justify-content: flex-end;
-		margin-bottom: 22px;
-	}
-
-	.theme-switcher {
-		display: inline-flex;
-		padding: 4px;
-		gap: 4px;
-		border-radius: 999px;
-		background: var(--card-soft);
-		border: 1px solid var(--border);
-		backdrop-filter: blur(10px);
-	}
-
-	.theme-button {
-		border: 0;
-		background: transparent;
-		color: var(--text-soft);
-		padding: 8px 12px;
-		border-radius: 999px;
-		font: inherit;
-		font-size: 13px;
-		font-weight: 700;
-		cursor: pointer;
-	}
-
-	.theme-button.is-active {
-		background: var(--accent-soft);
-		color: var(--text-strong);
-	}
-
 	.footer-grid {
 		display: grid;
 		grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -309,10 +273,6 @@ const footerSections = [
 	}
 
 	@media (max-width: 640px) {
-		.footer-toolbar {
-			justify-content: center;
-		}
-
 		.footer-grid {
 			grid-template-columns: 1fr;
 			gap: 22px;
