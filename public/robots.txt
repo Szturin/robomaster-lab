@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://szturin.github.io/robomaster-lab/sitemap-index.xml

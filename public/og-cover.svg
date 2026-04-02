@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">集美大学科来战队 RoboMaster Lab</title>
+  <desc id="desc">集美大学科来战队 RoboMaster Lab 官方展示页分享图</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b0f14" />
+      <stop offset="100%" stop-color="#121821" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fb923c" />
+      <stop offset="100%" stop-color="#f97316" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <circle cx="170" cy="120" r="220" fill="#fb923c" opacity="0.12" />
+  <circle cx="1030" cy="110" r="180" fill="#ffffff" opacity="0.06" />
+  <g opacity="0.12" stroke="#ffffff">
+    <path d="M80 150H1120" />
+    <path d="M80 210H1120" />
+    <path d="M80 270H1120" />
+    <path d="M80 330H1120" />
+    <path d="M80 390H1120" />
+    <path d="M80 450H1120" />
+    <path d="M80 510H1120" />
+    <path d="M180 70V560" />
+    <path d="M300 70V560" />
+    <path d="M420 70V560" />
+    <path d="M540 70V560" />
+    <path d="M660 70V560" />
+    <path d="M780 70V560" />
+    <path d="M900 70V560" />
+    <path d="M1020 70V560" />
+  </g>
+  <rect x="80" y="82" width="150" height="10" rx="5" fill="url(#accent)" />
+  <text x="80" y="190" fill="#f8fafc" font-size="64" font-family="Inter, PingFang SC, Microsoft YaHei, sans-serif" font-weight="700">
+    集美大学科来战队
+  </text>
+  <text x="80" y="270" fill="#f8fafc" font-size="64" font-family="Inter, PingFang SC, Microsoft YaHei, sans-serif" font-weight="700">
+    RoboMaster Lab
+  </text>
+  <text x="80" y="348" fill="#c7d0db" font-size="30" font-family="Inter, PingFang SC, Microsoft YaHei, sans-serif">
+    战队展示 · 技术文档 · 小组方向 · 招新协作
+  </text>
+  <text x="80" y="438" fill="#98a2b3" font-size="24" font-family="Inter, PingFang SC, Microsoft YaHei, sans-serif">
+    Kelai Team / Jimei University / RoboMaster
+  </text>
+  <rect x="80" y="492" width="330" height="58" rx="29" fill="#ffffff" opacity="0.06" stroke="#fb923c" stroke-opacity="0.45" />
+  <text x="116" y="529" fill="#fb923c" font-size="28" font-family="Inter, PingFang SC, Microsoft YaHei, sans-serif" font-weight="700">
+    https://szturin.github.io/robomaster-lab
+  </text>
+</svg>
