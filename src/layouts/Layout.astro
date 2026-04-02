@@ -17,7 +17,7 @@ const {
 
 const site = Astro.site;
 const canonicalUrl = site ? new URL(canonicalPath ?? Astro.url.pathname, site).toString() : undefined;
-const defaultOgImage = site ? new URL(`${import.meta.env.BASE_URL}og-cover.svg`, site).toString() : undefined;
+const defaultOgImage = site ? new URL(`.${import.meta.env.BASE_URL}og-cover.svg`, site).toString() : undefined;
 const ogImageUrl = ogImage ? (site ? new URL(ogImage, site).toString() : ogImage) : defaultOgImage;
 const robots = noindex ? 'noindex, nofollow' : 'index, follow';
 const structuredData = {
