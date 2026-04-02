@@ -20,11 +20,11 @@ const feishuDocUrl = 'https://ecnxe597phb3.feishu.cn/wiki/Ku6PwOIlLiC7FnklO5MccZ
 const robomasterUrl = 'https://www.robomaster.com/zh-CN';
 ---
 
-<Layout title="科来战队 Robomaster Lab">
+<Layout title="TEF Robomaster Lab">
 	<div class="page">
 		<header class="hero">
-			<nav class="nav">
-				<div class="brand">科来战队 Robomaster Lab</div>
+			<nav class="nav reveal-sequence reveal-delay-0">
+				<div class="brand">TEF Robomaster Lab</div>
 				<div class="nav-right">
 					<div class="links">
 						<a href={robomasterUrl} target="_blank" rel="noreferrer">
@@ -63,18 +63,25 @@ const robomasterUrl = 'https://www.robomaster.com/zh-CN';
 			</nav>
 
 			<section class="hero-main">
+				<div class="hero-ambient" aria-hidden="true">
+					<span class="hero-orb orb-one"></span>
+					<span class="hero-orb orb-two"></span>
+					<span class="hero-scan"></span>
+				</div>
 				<div class="hero-copy">
-					<p class="eyebrow">KELAI TEAM · ROBOMASTER LAB</p>
-					<h1>科来战队 Robomaster Lab</h1>
-					<p class="lead">
+					<p class="eyebrow reveal-sequence reveal-delay-1">TEF · ROBOMASTER LAB</p>
+					<h1 class="typing-heading reveal-delay-2" data-typing-text="TEF Robomaster Lab" aria-label="TEF Robomaster Lab">
+						<span class="typing-text" aria-hidden="true"></span>
+					</h1>
+					<p class="lead reveal-sequence reveal-delay-3">
 						展示战队风采、沉淀技术资料、组织招新协作，服务于 RoboMaster 项目展示与团队建设。
 					</p>
-					<div class="actions">
+					<div class="actions reveal-sequence reveal-delay-4">
 						<a class="primary" href={feishuDocUrl} target="_blank" rel="noreferrer">飞书文档</a>
 						<a class="secondary" href="/robomaster-lab/docs">技术文档</a>
 					</div>
 				</div>
-				<div class="hero-card">
+				<div class="hero-card reveal-sequence reveal-delay-5">
 					<div class="metric"><span>4</span><label>核心方向</label></div>
 					<div class="metric"><span>24h</span><label>开放协作节奏</label></div>
 					<div class="metric"><span>GitHub Pages</span><label>免费托管</label></div>
@@ -83,7 +90,7 @@ const robomasterUrl = 'https://www.robomaster.com/zh-CN';
 		</header>
 
 		<main>
-			<section id="about" class="panel">
+			<section id="about" class="panel reveal-on-scroll">
 				<div class="section-head">
 					<div>
 						<h2>关于我们</h2>
@@ -101,7 +108,7 @@ const robomasterUrl = 'https://www.robomaster.com/zh-CN';
 				</div>
 			</section>
 
-			<section id="teams" class="panel">
+			<section id="teams" class="panel reveal-on-scroll">
 				<div class="section-head">
 					<div>
 						<h2>小组方向</h2>
@@ -139,22 +146,111 @@ const robomasterUrl = 'https://www.robomaster.com/zh-CN';
 				</div>
 			</section>
 
-			<section class="panel callout">
+			<section class="panel callout reveal-on-scroll">
 				<div>
-					<h2>欢迎加入科来战队 Robomaster Lab</h2>
+					<h2>欢迎加入 TEF Robomaster Lab</h2>
 					<p>你可以继续补充队伍成员页、比赛成绩页、招新页、项目展示页和开发手册页。</p>
 				</div>
 				<a class="primary" href={feishuInviteUrl} target="_blank" rel="noreferrer">通过飞书加入</a>
 			</section>
 		</main>
 	</div>
+
+	<script is:inline>
+		(() => {
+			const heading = document.querySelector('.typing-heading');
+			const textNode = heading?.querySelector('.typing-text');
+			const text = heading?.getAttribute('data-typing-text') || '';
+			if (!heading || !textNode) return;
+
+			const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+			if (prefersReducedMotion) {
+				textNode.textContent = text;
+				heading.classList.add('is-complete');
+				return;
+			}
+
+			textNode.textContent = '';
+			let index = 0;
+			const startTyping = () => {
+				const timer = window.setInterval(() => {
+					index += 1;
+					textNode.textContent = text.slice(0, index);
+					if (index >= text.length) {
+						window.clearInterval(timer);
+						heading.classList.add('is-complete');
+					}
+				}, 70);
+			};
+
+			window.setTimeout(startTyping, 240);
+		})();
+	</script>
 </Layout>
 
 <style>
+	@keyframes hero-orb-float {
+		0% {
+			transform: translate3d(0, 0, 0) scale(1);
+			opacity: 0.34;
+		}
+		50% {
+			transform: translate3d(10px, -12px, 0) scale(1.05);
+			opacity: 0.52;
+		}
+		100% {
+			transform: translate3d(0, 0, 0) scale(1);
+			opacity: 0.34;
+		}
+	}
+
+	@keyframes hero-scan-sweep {
+		0% {
+			transform: translate3d(-8%, -10%, 0) rotate(12deg);
+			opacity: 0;
+		}
+		20% {
+			opacity: 0.2;
+		}
+		60% {
+			opacity: 0.12;
+		}
+		100% {
+			transform: translate3d(18%, 18%, 0) rotate(12deg);
+			opacity: 0;
+		}
+	}
+
+	@keyframes reveal-sequence {
+		from {
+			opacity: 0;
+			transform: translateY(14px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	@keyframes typing-caret-blink {
+		0%,
+		49% {
+			border-color: color-mix(in srgb, var(--accent) 92%, transparent);
+		}
+		50%,
+		100% {
+			border-color: transparent;
+		}
+	}
+
 	.page {
 		max-width: 1200px;
 		margin: 0 auto;
 		padding: 24px;
+	}
+
+	.hero {
+		position: relative;
 	}
 
 	.nav {
@@ -199,6 +295,15 @@ const robomasterUrl = 'https://www.robomaster.com/zh-CN';
 		border: 0;
 		background: transparent;
 		cursor: pointer;
+		transition:
+			transform var(--motion-duration-fast) ease,
+			box-shadow var(--motion-duration-fast) ease,
+			background var(--motion-duration-fast) ease;
+	}
+
+	.theme-button:hover,
+	.theme-button:focus-visible {
+		transform: translateY(-1px);
 	}
 
 	.nav-theme {
@@ -214,9 +319,23 @@ const robomasterUrl = 'https://www.robomaster.com/zh-CN';
 		flex: none;
 	}
 
+	.nav-theme:hover,
+	.nav-theme:focus-visible {
+		box-shadow: 0 0 0 6px color-mix(in srgb, var(--accent-soft) 70%, transparent);
+	}
+
 	.nav-theme svg {
 		width: 18px;
 		height: 18px;
+		transition: transform var(--motion-duration-base) var(--motion-ease);
+	}
+
+	html[data-theme='light'] .nav-theme svg {
+		transform: rotate(-10deg);
+	}
+
+	html[data-theme='dark'] .nav-theme svg {
+		transform: rotate(10deg);
 	}
 
 	.nav-theme .moon-shape {
@@ -238,6 +357,7 @@ const robomasterUrl = 'https://www.robomaster.com/zh-CN';
 	}
 
 	.links a {
+		position: relative;
 		display: inline-flex;
 		align-items: center;
 		gap: 8px;
@@ -246,16 +366,39 @@ const robomasterUrl = 'https://www.robomaster.com/zh-CN';
 		color: var(--text-strong);
 		font-weight: 600;
 		letter-spacing: 0.01em;
-		transition: background 0.2s ease, color 0.2s ease;
+		transition:
+			background var(--motion-duration-fast) ease,
+			color var(--motion-duration-fast) ease,
+			transform var(--motion-duration-fast) ease;
+	}
+
+	.links a::after {
+		content: '';
+		position: absolute;
+		left: 14px;
+		right: 14px;
+		bottom: 6px;
+		height: 1.5px;
+		background: var(--accent);
+		transform: scaleX(0);
+		transform-origin: left;
+		transition: transform var(--motion-duration-base) var(--motion-ease);
 	}
 
 	.links a:last-child {
 		border-right: 0;
 	}
 
-	.links a:hover {
+	.links a:hover,
+	.links a:focus-visible {
 		background: var(--accent-soft);
 		color: var(--text-strong);
+		transform: translateY(-1px);
+	}
+
+	.links a:hover::after,
+	.links a:focus-visible::after {
+		transform: scaleX(1);
 	}
 
 	.links a svg {
@@ -263,20 +406,107 @@ const robomasterUrl = 'https://www.robomaster.com/zh-CN';
 		height: 16px;
 		color: var(--accent);
 		flex: none;
+		transition: transform var(--motion-duration-fast) ease;
+	}
+
+	.links a:hover svg,
+	.links a:focus-visible svg {
+		transform: translate(1px, -1px);
 	}
 
 	.hero-main {
+		position: relative;
 		display: grid;
 		grid-template-columns: 1.4fr 0.8fr;
 		gap: 24px;
 		align-items: center;
 		padding: 12px 0 28px;
+		isolation: isolate;
 	}
+
+	.hero-ambient {
+		position: absolute;
+		inset: 0;
+		pointer-events: none;
+		overflow: hidden;
+		border-radius: 28px;
+		z-index: -1;
+	}
+
+	.hero-ambient::before {
+		content: '';
+		position: absolute;
+		inset: 8% 4% auto 4%;
+		height: 58%;
+		background-image:
+			linear-gradient(to bottom, color-mix(in srgb, var(--border) 42%, transparent) 1px, transparent 1px),
+			linear-gradient(to right, color-mix(in srgb, var(--border) 26%, transparent) 1px, transparent 1px);
+		background-size: 100% 20px, 20px 100%;
+		opacity: 0.08;
+		mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.65), transparent 92%);
+	}
+
+	.hero-orb,
+	.hero-scan {
+		position: absolute;
+		display: block;
+	}
+
+	.hero-orb {
+		border-radius: 999px;
+		filter: blur(18px);
+		animation: hero-orb-float 12s ease-in-out infinite;
+	}
+
+	.orb-one {
+		top: 4%;
+		left: 10%;
+		width: 240px;
+		height: 240px;
+		background: radial-gradient(circle, color-mix(in srgb, var(--accent) 26%, transparent), transparent 70%);
+	}
+
+	.orb-two {
+		right: 12%;
+		bottom: 10%;
+		width: 190px;
+		height: 190px;
+		background: radial-gradient(circle, color-mix(in srgb, var(--bg-glow) 95%, transparent), transparent 72%);
+		animation-delay: -5s;
+	}
+
+	.hero-scan {
+		top: -12%;
+		left: 12%;
+		width: 42%;
+		height: 170%;
+		background: linear-gradient(180deg, transparent, color-mix(in srgb, var(--accent) 12%, transparent), transparent);
+		filter: blur(1px);
+		opacity: 0;
+		transform: rotate(12deg);
+		animation: hero-scan-sweep 8.5s ease-in-out infinite;
+	}
+
+	.hero-copy > * {
+		opacity: 0;
+	}
+
+	.reveal-sequence {
+		animation: reveal-sequence 0.85s var(--motion-ease) both;
+	}
+
+	.reveal-delay-0 { animation-delay: 0.04s; }
+	.reveal-delay-1 { animation-delay: 0.12s; }
+	.reveal-delay-2 { animation-delay: 0.2s; }
+	.reveal-delay-3 { animation-delay: 0.3s; }
+	.reveal-delay-4 { animation-delay: 0.4s; }
+	.reveal-delay-5 { animation-delay: 0.5s; }
 
 	.eyebrow {
 		color: var(--text-strong);
 		letter-spacing: 0.22em;
 		font-size: 12px;
+		text-shadow: 0 0 18px color-mix(in srgb, var(--accent) 10%, transparent);
 	}
 
 	h1 {
@@ -285,6 +515,24 @@ const robomasterUrl = 'https://www.robomaster.com/zh-CN';
 		margin: 12px 0 20px;
 		color: var(--text-strong);
 		text-shadow: 0 0 24px color-mix(in srgb, var(--text-strong) 6%, transparent);
+	}
+
+	.typing-heading {
+		opacity: 0;
+		animation: reveal-sequence 0.85s var(--motion-ease) 0.2s both;
+	}
+
+	.typing-text {
+		display: inline-block;
+		min-height: 1.1em;
+		white-space: nowrap;
+		padding-right: 0.12em;
+		border-right: 2px solid color-mix(in srgb, var(--accent) 92%, transparent);
+		animation: typing-caret-blink 1s step-end infinite;
+	}
+
+	.typing-heading.is-complete .typing-text {
+		border-right-color: transparent;
 	}
 
 	.lead,
@@ -307,6 +555,18 @@ const robomasterUrl = 'https://www.robomaster.com/zh-CN';
 		padding: 12px 18px;
 		border-radius: 12px;
 		font-weight: 700;
+		transition:
+			transform var(--motion-duration-fast) ease,
+			box-shadow var(--motion-duration-fast) ease,
+			border-color var(--motion-duration-fast) ease,
+			background var(--motion-duration-fast) ease;
+	}
+
+	.primary:hover,
+	.primary:focus-visible,
+	.secondary:hover,
+	.secondary:focus-visible {
+		transform: translateY(-2px);
 	}
 
 	.primary {
@@ -315,10 +575,23 @@ const robomasterUrl = 'https://www.robomaster.com/zh-CN';
 		box-shadow: 0 12px 30px color-mix(in srgb, var(--accent-strong) 22%, transparent);
 	}
 
+	.primary:hover,
+	.primary:focus-visible {
+		box-shadow:
+			0 16px 34px color-mix(in srgb, var(--accent-strong) 24%, transparent),
+			0 0 0 6px color-mix(in srgb, var(--accent-soft) 70%, transparent);
+	}
+
 	.secondary {
 		border: 1px solid var(--border);
 		background: var(--card-soft);
 		color: var(--text-strong);
+	}
+
+	.secondary:hover,
+	.secondary:focus-visible {
+		border-color: color-mix(in srgb, var(--accent) 28%, var(--border));
+		box-shadow: 0 12px 28px color-mix(in srgb, var(--shadow) 85%, transparent);
 	}
 
 	.hero-card,
@@ -327,6 +600,11 @@ const robomasterUrl = 'https://www.robomaster.com/zh-CN';
 		background: var(--card);
 		border: 1px solid var(--border);
 		backdrop-filter: blur(14px);
+		transition:
+			transform var(--motion-duration-base) var(--motion-ease),
+			border-color var(--motion-duration-fast) ease,
+			box-shadow var(--motion-duration-base) ease,
+			background var(--motion-duration-fast) ease;
 	}
 
 	.hero-card {
@@ -338,10 +616,41 @@ const robomasterUrl = 'https://www.robomaster.com/zh-CN';
 	}
 
 	.metric {
+		position: relative;
+		overflow: hidden;
 		padding: 16px;
 		border-radius: 16px;
 		background: linear-gradient(180deg, var(--card-soft), color-mix(in srgb, var(--accent-soft) 70%, transparent));
 		border: 1px solid var(--border);
+		transition:
+			transform var(--motion-duration-fast) ease,
+			border-color var(--motion-duration-fast) ease,
+			box-shadow var(--motion-duration-base) ease;
+	}
+
+	.metric::before {
+		content: '';
+		position: absolute;
+		inset: 0 auto auto -35%;
+		width: 42%;
+		height: 100%;
+		background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--accent) 18%, transparent), transparent);
+		transform: skewX(-18deg);
+		opacity: 0;
+		transition: transform 0.8s var(--motion-ease), opacity var(--motion-duration-fast) ease;
+	}
+
+	.metric:hover,
+	.metric:focus-within {
+		transform: translateY(-3px);
+		border-color: color-mix(in srgb, var(--accent) 30%, var(--border));
+		box-shadow: 0 18px 34px color-mix(in srgb, var(--shadow) 88%, transparent);
+	}
+
+	.metric:hover::before,
+	.metric:focus-within::before {
+		opacity: 1;
+		transform: translateX(240%) skewX(-18deg);
 	}
 
 	.metric span {
@@ -367,6 +676,14 @@ const robomasterUrl = 'https://www.robomaster.com/zh-CN';
 		padding: 28px;
 	}
 
+	.panel:hover,
+	.card:hover,
+	.card:focus-within {
+		transform: translateY(-3px);
+		border-color: color-mix(in srgb, var(--accent) 22%, var(--border));
+		box-shadow: 0 16px 34px color-mix(in srgb, var(--shadow) 90%, transparent);
+	}
+
 	.section-head {
 		display: flex;
 		justify-content: space-between;
@@ -384,10 +701,15 @@ const robomasterUrl = 'https://www.robomaster.com/zh-CN';
 		color: var(--accent);
 		font-weight: 700;
 		white-space: nowrap;
+		transition:
+			color var(--motion-duration-fast) ease,
+			transform var(--motion-duration-fast) ease;
 	}
 
-	.text-link:hover {
+	.text-link:hover,
+	.text-link:focus-visible {
 		color: color-mix(in srgb, var(--accent) 80%, white);
+		transform: translateX(2px);
 	}
 
 	.grid {
@@ -420,9 +742,17 @@ const robomasterUrl = 'https://www.robomaster.com/zh-CN';
 	}
 
 	.team-page {
-		display: none;
+		position: absolute;
+		inset: 0;
+		display: grid;
 		grid-template-columns: repeat(3, minmax(0, 1fr));
 		gap: 16px;
+		opacity: 0;
+		transform: translateY(10px);
+		pointer-events: none;
+		transition:
+			opacity var(--motion-duration-base) ease,
+			transform var(--motion-duration-base) ease;
 	}
 
 	.team-card {
@@ -431,7 +761,9 @@ const robomasterUrl = 'https://www.robomaster.com/zh-CN';
 
 	#team-page-1:checked ~ .team-pages .page-one,
 	#team-page-2:checked ~ .team-pages .page-two {
-		display: grid;
+		opacity: 1;
+		transform: translateY(0);
+		pointer-events: auto;
 	}
 
 	.page-two {
@@ -446,21 +778,27 @@ const robomasterUrl = 'https://www.robomaster.com/zh-CN';
 	}
 
 	.team-dots label {
+		position: relative;
 		width: 10px;
 		height: 10px;
 		border-radius: 999px;
 		background: color-mix(in srgb, var(--text-soft) 45%, transparent);
 		cursor: pointer;
-		transition: transform 0.2s ease, background 0.2s ease;
+		transition:
+			transform var(--motion-duration-fast) ease,
+			background var(--motion-duration-fast) ease,
+			box-shadow var(--motion-duration-fast) ease;
 	}
 
-	.team-dots label:hover {
+	.team-dots label:hover,
+	.team-dots label:focus-visible {
 		transform: scale(1.15);
 	}
 
 	#team-page-1:checked ~ .team-dots label[for='team-page-1'],
 	#team-page-2:checked ~ .team-dots label[for='team-page-2'] {
 		background: var(--accent);
+		box-shadow: 0 0 0 6px color-mix(in srgb, var(--accent-soft) 75%, transparent);
 	}
 
 	.card {
@@ -480,6 +818,46 @@ const robomasterUrl = 'https://www.robomaster.com/zh-CN';
 		gap: 24px;
 	}
 
+	@media (prefers-reduced-motion: reduce) {
+		.hero-orb,
+		.hero-scan,
+		.reveal-sequence,
+		.typing-heading,
+		.typing-text {
+			animation: none !important;
+		}
+
+		.hero-copy > *,
+		.hero-card,
+		.reveal-sequence,
+		.typing-heading {
+			opacity: 1 !important;
+			transform: none !important;
+		}
+
+		.typing-text {
+			border-right-color: transparent;
+		}
+
+		.team-page {
+			transition: none;
+		}
+
+		.links a:hover,
+		.links a:focus-visible,
+		.primary:hover,
+		.primary:focus-visible,
+		.secondary:hover,
+		.secondary:focus-visible,
+		.panel:hover,
+		.card:hover,
+		.card:focus-within,
+		.metric:hover,
+		.metric:focus-within {
+			transform: none;
+		}
+	}
+
 	@media (max-width: 900px) {
 		.team-page,
 		.page-two,
@@ -490,7 +868,7 @@ const robomasterUrl = 'https://www.robomaster.com/zh-CN';
 		}
 
 		.team-pages {
-			min-height: auto;
+			min-height: 420px;
 		}
 
 		.nav {
@@ -515,6 +893,10 @@ const robomasterUrl = 'https://www.robomaster.com/zh-CN';
 			border-right: 1px solid var(--border);
 			border-bottom: 1px solid var(--border);
 		}
+
+		.hero-scan {
+			width: 62%;
+		}
 	}
 
 	@media (max-width: 640px) {
@@ -529,6 +911,24 @@ const robomasterUrl = 'https://www.robomaster.com/zh-CN';
 		.section-head {
 			flex-direction: column;
 			align-items: flex-start;
+		}
+
+		.hero-ambient::before {
+			opacity: 0.05;
+		}
+
+		.orb-one {
+			width: 180px;
+			height: 180px;
+		}
+
+		.orb-two {
+			width: 140px;
+			height: 140px;
+		}
+
+		.typing-text {
+			white-space: normal;
 		}
 	}
 </style>
