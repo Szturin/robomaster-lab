@@ -18,6 +18,8 @@ const sections = [
 const feishuInviteUrl = 'https://ecnxe597phb3.feishu.cn/invite/member/TYzmSefnMiM';
 const feishuDocUrl = 'https://ecnxe597phb3.feishu.cn/wiki/Ku6PwOIlLiC7FnklO5MccZUZnig';
 const robomasterUrl = 'https://www.robomaster.com/zh-CN';
+const searchAction = 'https://www.google.com/search';
+const searchQuery = 'site:szturin.github.io/robomaster-lab';
 ---
 
 <Layout
@@ -30,6 +32,15 @@ const robomasterUrl = 'https://www.robomaster.com/zh-CN';
 			<nav class="nav reveal-sequence reveal-delay-0">
 				<div class="brand">TEF Robomaster Lab</div>
 				<div class="nav-right">
+					<form class="nav-search" action={searchAction} method="get" target="_blank" rel="noreferrer">
+						<input type="hidden" name="q" value={searchQuery} data-search-base />
+						<label class="search-field">
+							<svg viewBox="0 0 24 24" aria-hidden="true">
+								<path fill="currentColor" d="M10.5 4a6.5 6.5 0 1 1 0 13 6.5 6.5 0 0 1 0-13Zm0 2a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9Zm8.91 11.5 1.59 1.59-1.41 1.41L18 18.91l1.41-1.41Z" />
+							</svg>
+							<input type="search" name="keyword" placeholder="搜索站内内容" aria-label="搜索站内内容" data-search-input />
+						</label>
+					</form>
 					<div class="links">
 						<a href={robomasterUrl} target="_blank" rel="noreferrer">
 							<svg viewBox="0 0 24 24" aria-hidden="true">
@@ -162,6 +173,20 @@ const robomasterUrl = 'https://www.robomaster.com/zh-CN';
 
 	<script is:inline>
 		(() => {
+			const searchForm = document.querySelector('.nav-search');
+			const searchInput = searchForm?.querySelector('[data-search-input]');
+			const searchBase = searchForm?.querySelector('[data-search-base]');
+			if (searchForm && searchInput instanceof HTMLInputElement && searchBase instanceof HTMLInputElement) {
+				searchForm.addEventListener('submit', () => {
+					const keyword = searchInput.value.trim();
+					searchBase.value = keyword ? `${searchQuery} ${keyword}` : searchQuery;
+				});
+			}
+		})();
+	</script>
+
+	<script is:inline>
+		(() => {
 			const heading = document.querySelector('.typing-heading');
 			const textNode = heading?.querySelector('.typing-text');
 			const text = heading?.getAttribute('data-typing-text') || '';
@@ -283,6 +308,52 @@ const robomasterUrl = 'https://www.robomaster.com/zh-CN';
 		display: flex;
 		align-items: center;
 		gap: 12px;
+	}
+
+	.nav-search {
+		flex: none;
+	}
+
+	.search-field {
+		display: inline-flex;
+		align-items: center;
+		gap: 10px;
+		width: 240px;
+		height: 44px;
+		padding: 0 14px;
+		border-radius: 14px;
+		background: var(--card-soft);
+		border: 1px solid var(--border);
+		color: var(--text-muted);
+		transition:
+			border-color var(--motion-duration-fast) ease,
+			box-shadow var(--motion-duration-fast) ease,
+			background var(--motion-duration-fast) ease;
+	}
+
+	.search-field:focus-within {
+		border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
+		box-shadow: 0 0 0 6px color-mix(in srgb, var(--accent-soft) 72%, transparent);
+	}
+
+	.search-field svg {
+		width: 16px;
+		height: 16px;
+		color: var(--accent);
+		flex: none;
+	}
+
+	.search-field input {
+		width: 100%;
+		border: 0;
+		outline: 0;
+		background: transparent;
+		color: var(--text-strong);
+		font: inherit;
+	}
+
+	.search-field input::placeholder {
+		color: var(--text-soft);
 	}
 
 	.links {
@@ -883,6 +954,16 @@ const robomasterUrl = 'https://www.robomaster.com/zh-CN';
 			align-items: flex-start;
 			gap: 14px;
 			padding: 12px 14px;
+		}
+
+		.nav-right {
+			width: 100%;
+			flex-wrap: wrap;
+		}
+
+		.nav-search,
+		.search-field {
+			width: 100%;
 		}
 
 		.links {
