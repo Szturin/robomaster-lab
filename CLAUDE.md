@@ -48,6 +48,7 @@ robomaster-lab/
 ## 页面说明
 
 ### `src/pages/index.astro`
+
 首页。包含：
 - 顶部导航
 - 赛事官网入口
@@ -126,6 +127,19 @@ GitHub Pages 配置在：
 - 新页面默认包在 `src/layouts/Layout.astro` 下，保持统一外壳与主题变量
 - 不要把 Astro 默认示例组件 `src/components/Welcome.astro` 当作当前业务实现规范
 - AI 修改前端时，应优先参考 `.trellis/spec/frontend/` 下的已填写指南
+
+## 文档职责分工
+
+- `README.md`：给新进入仓库的人看，负责项目介绍、运行方式、部署说明与团队维护入口
+- `CONTRIBUTING.md`：给团队协作者看，负责提交范围、协作约束、基础检查项
+- `CLAUDE.md`：给 AI 助手看，负责项目上下文、实现约束、文档修改边界与推荐工具
+
+## 团队协作背景
+
+- 当前仓库仍托管在个人 GitHub 账号下
+- 网站内容可以服务团队协作，但不应虚构组织级流程或权限体系
+- 后续协作默认以小步修改、构建验证、按需 review 为主
+- 若涉及首页改版、视觉重构、移动端体验优化，优先推荐使用 `ui-ux-designer` 提供设计建议
 
 ## 推荐 subagent / skills
 
