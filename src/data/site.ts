@@ -2,7 +2,7 @@ export const SITE_LINKS = {
 	github: 'https://github.com/Szturin/robomaster-lab',
 	bilibili: 'https://space.bilibili.com/651717103',
 	feishuWiki: 'https://ecnxe597phb3.feishu.cn/wiki/Ku6PwOIlLiC7FnklO5MccZUZnig',
-	feishuInvite: 'https://ecnxe597phb3.feishu.cn/invite/member/TYzmSefnMiM',
+	feishuInvite: '#',
 	robomaster: 'https://www.robomaster.com/zh-CN',
 	astro: 'https://astro.build',
 	searchAction: 'https://www.google.com/search',
@@ -30,6 +30,7 @@ export const FOOTER_SECTIONS = [
 		links: [
 			{ name: 'GitHub 仓库', href: SITE_LINKS.github, external: true },
 			{ name: '飞书文档', href: SITE_LINKS.feishuWiki, external: true },
+			{ name: '加入飞书群', href: SITE_LINKS.feishuInvite },
 		],
 	},
 	{

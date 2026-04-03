@@ -256,7 +256,10 @@ html[data-theme='dark'] .nav-theme .moon-shape {
 	transform: scaleX(1);
 }
 
-.links a svg {
+.links a[data-disabled-invite],
+.callout a[data-disabled-invite] {
+	cursor: pointer;
+}
 	width: 16px;
 	height: 16px;
 	color: var(--accent);
