@@ -30,7 +30,6 @@ export const FOOTER_SECTIONS = [
 		links: [
 			{ name: 'GitHub 仓库', href: SITE_LINKS.github, external: true },
 			{ name: '飞书文档', href: SITE_LINKS.feishuWiki, external: true },
-			{ name: '加入飞书群', href: SITE_LINKS.feishuInvite, external: true },
 		],
 	},
 	{
