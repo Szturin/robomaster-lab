@@ -1,36 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import '../styles/docs.css';
-
-const groups = [
-	{
-		name: '机械组',
-		docs: [{ title: '机械组资料', text: '围绕结构设计、机构实现、装配调试等内容整理的资料入口。' }],
-	},
-	{
-		name: '电控组',
-		docs: [{ title: '电控组资料', text: '嵌入式开发、控制系统、通信链路与调参流程。' }],
-	},
-	{
-		name: '视觉组',
-		docs: [{ title: '视觉组资料', text: 'Linux 开发、MiniPC 部署、模型训练与推理链路相关资料。' }],
-	},
-	{
-		name: '硬件组',
-		docs: [{ title: '硬件组资料', text: 'PCB 设计、接口电源、传感器接入与电气验证资料入口。' }],
-	},
-	{
-		name: '运营组',
-		docs: [{ title: '运营组资料', text: '宣传招新、项目统筹、物资协调与赛事复盘资料。' }],
-	},
-];
+import { SITE_LINKS } from '../data/site';
+import { TEAM_SECTIONS } from '../data/team-sections';
 
 const commonDocs = [
 	{ title: '开发环境搭建', text: '面向新成员入门，包含工具链安装、仓库结构与基础协作约定。' },
 	{
 		title: '飞书知识文档',
 		text: '查看战队飞书 Wiki 文档，获取更完整的内部资料与协作内容。',
-		url: 'https://ecnxe597phb3.feishu.cn/wiki/Ku6PwOIlLiC7FnklO5MccZUZnig',
+		url: SITE_LINKS.feishuWiki,
 	},
 ];
 ---
@@ -67,16 +46,14 @@ const commonDocs = [
 		</section>
 
 		<div class="groups">
-			{groups.map((group) => (
+			{TEAM_SECTIONS.map((group) => (
 				<section class="panel">
 					<h2>{group.name}</h2>
 					<div class="grid one">
-						{group.docs.map((item) => (
-							<article class="card">
-								<h3>{item.title}</h3>
-								<p>{item.text}</p>
-							</article>
-						))}
+						<article class="card">
+							<h3>{`${group.name}资料`}</h3>
+							<p>{group.docsDescription}</p>
+						</article>
 					</div>
 				</section>
 			))}

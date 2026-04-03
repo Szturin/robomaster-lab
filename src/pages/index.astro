@@ -1,26 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import '../styles/index.css';
+import { SITE_LINKS, SITE_META } from '../data/site';
+import { TEAM_SECTIONS } from '../data/team-sections';
 
 const highlights = [
 	{ title: '机器人开发', text: '围绕 RoboMaster 开展机械、电控、视觉与整机协同开发。' },
 	{ title: '赛事积累', text: '沉淀比赛经验、项目复盘、调试记录与工程资料。' },
 	{ title: '开放协作', text: '欢迎对机器人、嵌入式、算法与赛事工程感兴趣的同学加入。' },
 ];
-
-const sections = [
-	{ name: '机械组', desc: '结构设计、机构实现与整机装配调试。' },
-	{ name: '电控组', desc: '嵌入式开发、控制系统与通信实现。' },
-	{ name: '视觉组', desc: 'Linux 开发、MiniPC 部署与深度学习模型训练。' },
-	{ name: '硬件组', desc: 'PCB设计、接口电源与电气可靠性验证。' },
-	{ name: '运营组', desc: '宣传招新、项目统筹与物资协调保障。' },
-];
-
-const feishuInviteUrl = 'https://ecnxe597phb3.feishu.cn/invite/member/TYzmSefnMiM';
-const feishuDocUrl = 'https://ecnxe597phb3.feishu.cn/wiki/Ku6PwOIlLiC7FnklO5MccZUZnig';
-const robomasterUrl = 'https://www.robomaster.com/zh-CN';
-const searchAction = 'https://www.google.com/search';
-const searchQuery = 'site:szturin.github.io/robomaster-lab';
 ---
 
 <Layout
@@ -33,8 +21,8 @@ const searchQuery = 'site:szturin.github.io/robomaster-lab';
 			<nav class="nav reveal-sequence reveal-delay-0">
 				<div class="brand">TEF Robomaster Lab</div>
 				<div class="nav-right">
-					<form class="nav-search" action={searchAction} method="get" target="_blank" rel="noreferrer">
-						<input type="hidden" name="q" value={searchQuery} data-search-base />
+					<form class="nav-search" action={SITE_LINKS.searchAction} method="get" target="_blank" rel="noreferrer">
+						<input type="hidden" name="q" value={SITE_META.searchQuery} data-search-base />
 						<label class="search-field">
 							<svg viewBox="0 0 24 24" aria-hidden="true">
 								<path fill="currentColor" d="M10.5 4a6.5 6.5 0 1 1 0 13 6.5 6.5 0 0 1 0-13Zm0 2a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9Zm8.91 11.5 1.59 1.59-1.41 1.41L18 18.91l1.41-1.41Z" />
@@ -43,7 +31,7 @@ const searchQuery = 'site:szturin.github.io/robomaster-lab';
 						</label>
 					</form>
 					<div class="links">
-						<a href={robomasterUrl} target="_blank" rel="noreferrer">
+						<a href={SITE_LINKS.robomaster} target="_blank" rel="noreferrer">
 							<svg viewBox="0 0 24 24" aria-hidden="true">
 								<path fill="currentColor" d="M5 4h6.6c3.62 0 5.9 1.86 5.9 4.82 0 2.04-1.04 3.47-2.9 4.12L19 20h-3.95l-3.87-6.43H8.4V20H5V4Zm3.4 2.72v4.2h3c1.67 0 2.58-.71 2.58-2.08 0-1.4-.9-2.12-2.58-2.12h-3Z" />
 							</svg>
@@ -61,7 +49,7 @@ const searchQuery = 'site:szturin.github.io/robomaster-lab';
 							</svg>
 							<span>技术文档</span>
 						</a>
-						<a href={feishuInviteUrl} target="_blank" rel="noreferrer">
+						<a href={SITE_LINKS.feishuInvite} target="_blank" rel="noreferrer">
 							<svg viewBox="0 0 24 24" aria-hidden="true">
 								<path fill="currentColor" d="M19.45 4.44c-1.32-.83-3.75-.76-5.73.26L8.4 7.45 5.2 7.1a1.6 1.6 0 0 0-1.75 1.97l.7 2.75-1.53 4.6a1.65 1.65 0 0 0 2.09 2.08l4.56-1.55 2.76.7a1.6 1.6 0 0 0 1.96-1.74l-.35-3.23 2.75-5.3c1.02-1.98 1.09-4.4.26-5.74-.26-.42-.63-.78-1.2-1.14Z" />
 							</svg>
@@ -93,7 +81,7 @@ const searchQuery = 'site:szturin.github.io/robomaster-lab';
 						这里是集美大学科来战队 TEF RoboMaster Lab 的对外展示站，面向 RoboMaster 高校赛事与机器人工程实践，集中展示战队建设、技术文档、成员培养与招新协作信息。
 					</p>
 					<div class="actions reveal-sequence reveal-delay-4">
-						<a class="primary" href={feishuDocUrl} target="_blank" rel="noreferrer">飞书文档</a>
+						<a class="primary" href={SITE_LINKS.feishuWiki} target="_blank" rel="noreferrer">飞书文档</a>
 						<a class="secondary" href="/robomaster-lab/docs">技术文档</a>
 					</div>
 				</div>
@@ -138,18 +126,18 @@ const searchQuery = 'site:szturin.github.io/robomaster-lab';
 
 					<div class="team-pages">
 						<div class="team-page page-one">
-							{sections.slice(0, 3).map((item) => (
+							{TEAM_SECTIONS.slice(0, 3).map((item) => (
 								<article class="card compact team-card">
 									<h3>{item.name}</h3>
-									<p>{item.desc}</p>
+									<p>{item.summary}</p>
 								</article>
 							))}
 						</div>
 						<div class="team-page page-two">
-							{sections.slice(3).map((item) => (
+							{TEAM_SECTIONS.slice(3).map((item) => (
 								<article class="card compact team-card">
 									<h3>{item.name}</h3>
-									<p>{item.desc}</p>
+									<p>{item.summary}</p>
 								</article>
 							))}
 						</div>
@@ -167,7 +155,7 @@ const searchQuery = 'site:szturin.github.io/robomaster-lab';
 					<h2>欢迎加入 TEF Robomaster Lab</h2>
 					<p>后续将逐步完善队伍成员、比赛成绩、招新信息、项目展示与开发手册等内容。</p>
 				</div>
-				<a class="primary" href={feishuInviteUrl} target="_blank" rel="noreferrer">通过飞书加入</a>
+				<a class="primary" href={SITE_LINKS.feishuInvite} target="_blank" rel="noreferrer">通过飞书加入</a>
 			</section>
 		</main>
 	</div>
@@ -180,7 +168,7 @@ const searchQuery = 'site:szturin.github.io/robomaster-lab';
 			if (searchForm && searchInput instanceof HTMLInputElement && searchBase instanceof HTMLInputElement) {
 				searchForm.addEventListener('submit', () => {
 					const keyword = searchInput.value.trim();
-					searchBase.value = keyword ? `${searchQuery} ${keyword}` : searchQuery;
+					searchBase.value = keyword ? `${SITE_META.searchQuery} ${keyword}` : SITE_META.searchQuery;
 				});
 			}
 		})();

@@ -1,29 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import '../styles/subpage.css';
 import '../styles/teams.css';
-
-const sections = [
-	{
-		name: '机械组',
-		desc: '围绕结构设计、机构实现、整机装配与实车调试开展训练，帮助成员建立完整的机械工程实践能力。',
-	},
-	{
-		name: '电控组',
-		desc: '聚焦嵌入式开发、控制系统、通信链路与运动控制，让成员掌握机器人核心控制能力。',
-	},
-	{
-		name: '视觉组',
-		desc: '负责 Linux 开发、MiniPC 部署与深度学习模型训练，培养感知算法与系统部署能力。',
-	},
-	{
-		name: '硬件组',
-		desc: '围绕 PCB 设计、接口电源、传感器接入与电气验证开展实践，打牢硬件实现基础。',
-	},
-	{
-		name: '运营组',
-		desc: '参与宣传招新、项目管理、物资统筹与对外联络，提升团队协作与赛事保障能力。',
-	},
-];
+import { TEAM_SECTIONS } from '../data/team-sections';
 ---
 
 <Layout
@@ -35,17 +14,17 @@ const sections = [
 		<header class="topbar">
 			<a class="back-link" href="/robomaster-lab/">← 返回首页</a>
 			<p class="eyebrow">MEMBER DEVELOPMENT</p>
-			<h1>成员培养</h1>
+			<h1 class="page-title">成员培养</h1>
 			<p class="lead">
 				集美大学科来战队围绕 RoboMaster 机器人研发建立机械、电控、视觉、硬件与运营协同培养体系，帮助成员在真实项目、整机联调与赛事实践中逐步形成完整工程能力。
 			</p>
 		</header>
 
 		<section class="grid two">
-			{sections.map((item) => (
+			{TEAM_SECTIONS.map((item) => (
 				<article class="card">
 					<h2>{item.name}</h2>
-					<p>{item.desc}</p>
+					<p>{item.trainingDescription}</p>
 				</article>
 			))}
 		</section>

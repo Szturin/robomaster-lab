@@ -1,5 +1,6 @@
 ---
 import '../styles/layout.css';
+import { FOOTER_SECTIONS, SITE_LINKS, SITE_META } from '../data/site';
 
 interface Props {
 	title?: string;
@@ -10,8 +11,8 @@ interface Props {
 }
 
 const {
-	title = 'RoboMaster Lab',
-	description = '集美大学科来战队 RoboMaster Lab 展示战队风采、技术文档、成员培养与招新协作信息。',
+	title = SITE_META.defaultTitle,
+	description = SITE_META.defaultDescription,
 	canonicalPath,
 	ogImage,
 	noindex = false,
@@ -26,43 +27,12 @@ const robots = noindex ? 'noindex, nofollow' : 'index, follow';
 const structuredData = {
 	'@context': 'https://schema.org',
 	'@type': 'Organization',
-	name: '集美大学科来战队 RoboMaster Lab',
+	name: SITE_META.organizationName,
 	url: canonicalUrl ?? site?.toString(),
 	logo: defaultOgImage,
 	description,
-	sameAs: [
-		'https://github.com/Szturin/robomaster-lab',
-		'https://space.bilibili.com/651717103',
-	],
+	sameAs: [SITE_LINKS.github, SITE_LINKS.bilibili],
 };
-
-const footerSections = [
-	{
-		title: '文档',
-		links: [
-			{ name: '首页', href: '/robomaster-lab/' },
-			{ name: '关于我们', href: '/robomaster-lab/about' },
-			{ name: '成员培养', href: '/robomaster-lab/teams' },
-			{ name: '技术文档', href: '/robomaster-lab/docs' },
-		],
-	},
-	{
-		title: '社区',
-		links: [
-			{ name: 'GitHub 仓库', href: 'https://github.com/Szturin/robomaster-lab', external: true },
-			{ name: '飞书文档', href: 'https://ecnxe597phb3.feishu.cn/wiki/Ku6PwOIlLiC7FnklO5MccZUZnig', external: true },
-			{ name: '加入飞书群', href: 'https://ecnxe597phb3.feishu.cn/invite/member/TYzmSefnMiM', external: true },
-		],
-	},
-	{
-		title: '媒体',
-		links: [{ name: 'B站主页', href: 'https://space.bilibili.com/651717103', external: true }],
-	},
-	{
-		title: '相关链接',
-		links: [{ name: '赛事官网', href: 'https://www.robomaster.com/zh-CN', external: true }],
-	},
-];
 ---
 
 <!doctype html>
@@ -70,8 +40,8 @@ const footerSections = [
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`.replace('/robomaster-labfavicon', '/robomaster-lab/favicon')} />
-		<link rel="icon" type="image/x-icon" href={`${import.meta.env.BASE_URL}favicon.ico`.replace('/robomaster-labfavicon', '/robomaster-lab/favicon')} />
+		<link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
+		<link rel="icon" type="image/x-icon" href={`${import.meta.env.BASE_URL}favicon.ico`} />
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content={description} />
 		<meta name="robots" content={robots} />
@@ -109,7 +79,7 @@ const footerSections = [
 			<footer class="site-footer">
 				<div class="footer-inner reveal-on-scroll is-visible">
 					<div class="footer-grid">
-						{footerSections.map((section) => (
+						{FOOTER_SECTIONS.map((section) => (
 							<section class="footer-column">
 								<h3>{section.title}</h3>
 								<ul>
@@ -130,7 +100,7 @@ const footerSections = [
 						))}
 					</div>
 					<p class="footer-note">
-						<a href="https://astro.build" target="_blank" rel="noreferrer">Astro</a>
+						<a href={SITE_LINKS.astro} target="_blank" rel="noreferrer">Astro</a>
 						© 2026 TEF
 					</p>
 				</div>
